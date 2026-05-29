@@ -47,7 +47,7 @@ import UsersByRole from "../components/miniComponents/UsersByRole";
       <div className="grid grid-cols-3 gap-2 mb-6">
           <TaskStatus />
           <TaskPriority />
-          <UsersCountByRole />
+          <UsersByRole />
           
 
           </div>
