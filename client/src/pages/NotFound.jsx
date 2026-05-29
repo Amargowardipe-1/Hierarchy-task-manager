@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import SideBar from "../components/SideBar";
-import Navbar from "../components/NavBar";
+import NavBar from "../components/NavBar";
 
 function NotFound() {
 
