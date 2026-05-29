@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import API from "../../api/axios";
 
-function UsersCountByRole(){
+function UsersByRole(){
 
     const [UsersRole, setUsersRole]= useState({
         superAdmin: 0,
@@ -179,4 +179,4 @@ return(
 
 }
 
-export default UsersCountByRole;
+export default UsersByRole;

@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
-import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
+import SideBar from "../components/SideBar";
+import Navbar from "../components/NavBar";
 
 function NotFound() {
 
   return (
     <>
 
-    <Sidebar />
+    <SideBar />
 <div className="ml-64">
-    <Navbar />
+    <NavBar />
     </div>
     
     <div className="h-screen flex flex-col items-center justify-center bg-white">

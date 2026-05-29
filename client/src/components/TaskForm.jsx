@@ -6,7 +6,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import API from "../api/axios";
 
- function TaskHeader() {
+ function TaskForm() {
 
 
   const [showModal, setShowModal] = useState(false);
@@ -257,4 +257,4 @@ toast.success("Task created successfully");
 
 }
 
-export default TaskHeader;
+export default TaskForm;

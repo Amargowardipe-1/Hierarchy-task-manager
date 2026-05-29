@@ -4,7 +4,7 @@ import { FiEdit, FiX } from "react-icons/fi";
 import toast from "react-hot-toast";
 import API from "../../api/axios";
 
-function UserUpdateForm({ user, fetchUsers }) {
+function UserEditForm({ user, fetchUsers }) {
 
 
   const [showModal, setShowModal] =
@@ -275,4 +275,4 @@ function UserUpdateForm({ user, fetchUsers }) {
 
 }
 
-export default UserUpdateForm;
+export default UserEditForm;

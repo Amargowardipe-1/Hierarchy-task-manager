@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import API from "../../api/axios";
 
-function OverdueCard() {
+function OverDue() {
 
   const [overdueTasks, setOverdueTasks] = useState(0);
 
@@ -80,4 +80,4 @@ function OverdueCard() {
 
 }
 
-export default OverdueCard;
+export default OverDue;

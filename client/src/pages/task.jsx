@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
 import TaskTable from "../components/TaskTable";
-import TaskHeader from "../components/TaskForm";
-import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
+import TaskForm from "../components/TaskForm";
+import SideBar from "../components/SideBar";
+import NavBar from "../components/NavBar";
 
 function Task() {
 
@@ -10,14 +10,14 @@ function Task() {
         
             <div className="flex">
                   {/* Sidebar */}
-                  <Sidebar />
+                  <SideBar />
             
                   {/* Main Content */}
                   <div className="flex-1 ml-64">
-                    <Navbar />
+                    <NavBar />
             
         <div className="p-6">
-            <TaskHeader />
+            <TaskForm />
           </div>  
             <TaskTable />
         </div>

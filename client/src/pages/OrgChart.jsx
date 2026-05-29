@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
+import SideBar from "../components/SideBar";
+import NavBar from "../components/NavBar";
 import API from "../api/axios";
 
 function OrgChart() {
@@ -218,11 +218,11 @@ users.forEach((user) => {
     <div className="flex bg-gray-50 min-h-screen">
 
       
-      <Sidebar />
+      <SideBar />
 
       <div className="flex-1 ml-64">
 
-        <Navbar />
+        <NavBar />
 
         {/* PAGE */}
         <div className="p-8">

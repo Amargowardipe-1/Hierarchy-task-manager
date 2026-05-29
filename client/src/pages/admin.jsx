@@ -1,17 +1,17 @@
 // src/pages/SuperAdmin.jsx
-import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
+import SideBar from "../components/SideBar";
+import NavBar from "../components/NavBar";
 import UserForm from "../components/UserForm";
 import TaskForm from "../components/TaskForm";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import UserInScope from "../components/miniComponents/userInScope";
-import TotalTask from "../components/miniComponents/totalTask";
-import Inprogress from "../components/miniComponents/InProgress";
-import OverdueCard from "../components/miniComponents/overDue";
-import TaskStatusCard from "../components/miniComponents/TaskStatus";
-import TaskPriorityInfo from "../components/miniComponents/TaskPriority";
-import UsersCountByRole from "../components/miniComponents/UsersByRole";
+import UserInScope from "../components/miniComponents/UserInScope";
+import TotalTask from "../components/miniComponents/TotalTask";
+import InProgress from "../components/miniComponents/InProgress";
+import OverDue from "../components/miniComponents/OverDue";
+import TaskStatus from "../components/miniComponents/TaskStatus";
+import TaskPriority from "../components/miniComponents/TaskPriority";
+import UsersByRole from "../components/miniComponents/UsersByRole";
 
  function Admin() {
 
@@ -21,10 +21,10 @@ import UsersCountByRole from "../components/miniComponents/UsersByRole";
   return (
     <div className="flex">
 
-      <Sidebar />
+      <SideBar />
 
       <div className="flex-1 ml-64 ">
-        <Navbar />
+        <NavBar />
 
         <div className="p-6">
           
@@ -37,16 +37,16 @@ import UsersCountByRole from "../components/miniComponents/UsersByRole";
           <div className="grid grid-cols-4 gap-4 mb-6 ">
             <UserInScope />
             <TotalTask />
-            <Inprogress />
-            <OverdueCard />
+            <InProgress />
+            <OverDue />
 
 
             
             
           </div>
       <div className="grid grid-cols-3 gap-2 mb-6">
-          <TaskStatusCard />
-          <TaskPriorityInfo />
+          <TaskStatus />
+          <TaskPriority />
           <UsersCountByRole />
           
 

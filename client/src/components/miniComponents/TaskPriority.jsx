@@ -3,7 +3,7 @@ import axios from "axios";
 import API from "../../api/axios";
 
 
-function TaskPriorityInfo(){
+function TaskPriority(){
 
     const [Priority, setPriority]= useState({
         low:0,
@@ -149,4 +149,4 @@ function TaskPriorityInfo(){
     )
 }
 
-export default TaskPriorityInfo;
+export default TaskPriority;

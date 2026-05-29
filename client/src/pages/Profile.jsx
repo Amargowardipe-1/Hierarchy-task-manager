@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
+import SideBar from "../components/SideBar";
+import NavBar from "../components/NavBar";
 import API from "../api/axios";
 
 function Profile() {
@@ -110,12 +110,12 @@ function Profile() {
 
       
       <div className="fixed left-0 top-0 h-screen w-64 bg-slate-900">
-        <Sidebar />
+        <SideBar />
       </div>
 
       <div className="ml-64 flex-1">
 
-        <Navbar />
+        <NavBar />
 
         <div className="p-8">
 

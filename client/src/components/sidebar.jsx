@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {useState, useEffect} from "react";
 
 
-export default function Sidebar() {
+export default function SideBar() {
 
   const [currUser, setCurrUser] = useState(null);
 

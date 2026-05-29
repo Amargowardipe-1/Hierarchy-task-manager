@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import API from "../../api/axios";
 
-function InProgressCard() {
+function InProgress() {
 
   const [inProgressTask, setInProgressTask] = useState(0);
   const [tasks, setTasks] = useState([]);
@@ -70,4 +70,4 @@ function InProgressCard() {
 
 }
 
-export default InProgressCard;
+export default InProgress;

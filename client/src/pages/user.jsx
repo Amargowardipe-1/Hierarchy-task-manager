@@ -3,11 +3,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
+import SideBar from "../components/SideBar";
+import NavBar from "../components/NavBar";
 import UserForm from "../components/UserForm";
 import toast from "react-hot-toast";
-import UserUpdateForm from "../components/miniComponents/userEditForm";
+import UserEditForm from "../components/miniComponents/UserEditForm";
 import { MdDelete } from "react-icons/md";
 import { RiDeleteBin3Fill } from "react-icons/ri";
 import API from "../api/axios";
@@ -119,13 +119,13 @@ export default function Users() {
     <div className="flex min-h-screen bg-gray-100">
 
       
-      <Sidebar />
+      <SideBar />
 
     
       <div className="flex-1 ml-64">
 
         
-        <Navbar />
+        <NavBar />
 
         {/* Content */}
         <div className="p-6">
@@ -210,7 +210,7 @@ export default function Users() {
 
                       <td className="p-3 border space-x-3">
 
-                       <UserUpdateForm user={user} fetchUsers={fetchUsers} />
+                       <UserEditForm user={user} fetchUsers={fetchUsers} />
 
                     {(currUser?.role==="super-admin" || currUser?.role==="admin" || currUser?.role==="manager")&&(
                         <button

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import API from "../../api/axios";
 
-function TaskStatusCard() {
+function TaskStatus() {
 
   const [stats, setStats] = useState({
     todo: 0,
@@ -216,4 +216,4 @@ function TaskStatusCard() {
 
 }
 
-export default TaskStatusCard;
+export default TaskStatus;
