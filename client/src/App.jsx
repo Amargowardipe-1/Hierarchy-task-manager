@@ -18,7 +18,7 @@ function App() {
     <AuthProvider>   {/* 👈 Wrap everything inside AuthProvider */}
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<Login />} />
+          <Route path="/Login" element={<Login />} />
 
           <Route path="/superadmin" element={
     <ProtectedRoute allowedRoles={["super-admin"]}>
@@ -27,7 +27,7 @@ function App() {
   } />
 
   <Route
-   path="/user"
+   path="/User"
    element={
       <ProtectedRoute allowedRoles={["super-admin", "admin", "manager", "employee"]}>
          <Users />
@@ -40,27 +40,27 @@ function App() {
       <Admin />
     </ProtectedRoute>
   } />
-  <Route path="/manager" element={
+  <Route path="/Manager" element={
     <ProtectedRoute allowedRoles={["admin","manager"]}>
       <Manager />
     </ProtectedRoute>
   } />
-  <Route path="/employee" element={
+  <Route path="/Employee" element={
     <ProtectedRoute allowedRoles={["employee","manager"]}>
       <Employee />
     </ProtectedRoute>
   } />
-  <Route path="/task" element={
+  <Route path="/Task" element={
     <ProtectedRoute allowedRoles={["super-admin", "admin", "manager", "employee"]}>
       <Task />
     </ProtectedRoute>
   } />
-  <Route path="/orgChart" element={
+  <Route path="/OrgChart" element={
     <ProtectedRoute allowedRoles={["super-admin", "admin", "manager", "employee"]}>
       <OrgChart />
     </ProtectedRoute>
   } />
-  <Route path="/profile" element={
+  <Route path="/Profile" element={
     <ProtectedRoute allowedRoles={["super-admin", "admin", "manager", "employee"]}>
       <Profile />
     </ProtectedRoute>
