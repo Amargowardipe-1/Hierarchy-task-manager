@@ -7,7 +7,7 @@ import SuperAdmin from "./pages/SuperAdmin";
 import Admin from "./pages/Admin";
 import Manager from "./pages/Manager";
 import Employee from "./pages/Employee";
-import User from "./pages/User";
+import Users from "./pages/Users";
 import Task from "./pages/Task";
 import OrgChart from "./pages/OrgChart";
 import Profile from "./pages/Profile";
@@ -30,7 +30,7 @@ function App() {
    path="/user"
    element={
       <ProtectedRoute allowedRoles={["super-admin", "admin", "manager", "employee"]}>
-         <User />
+         <Users />
       </ProtectedRoute>
    }
 />
