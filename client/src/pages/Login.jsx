@@ -23,16 +23,16 @@ export default function Login() {
 
     const role = user.role;
     if(role === "super-admin"){
-        navigate("/SuperAdmin");
+        navigate("/superadmin");
     }
     else if(role === "admin"){
-        navigate("/Admin");
+        navigate("/admin");
     }
     else if(role === "manager"){
-        navigate("/Manager");
+        navigate("/manager");
     }
     else if(role === "employee"){
-        navigate("/Employee");
+        navigate("/employee");
     }
     else {
       error("Invalid user role");
