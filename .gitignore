@@ -1,0 +1,14 @@
+# Node backend
+server/node_modules/
+server/package-lock.json
+server/.env
+
+# React frontend
+client/node_modules/
+client/build/
+client/.env
+
+# Common
+*.log
+.DS_Store
+
