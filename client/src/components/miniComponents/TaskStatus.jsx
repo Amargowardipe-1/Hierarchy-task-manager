@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
+import API from "../../api/axios";
 
 function TaskStatusCard() {
 
@@ -20,8 +21,8 @@ function TaskStatusCard() {
 
         const token = localStorage.getItem("token");
 
-        const res = await axios.get(
-          "http://localhost:8000/api/tasks",
+        const res = await API.get(
+          "/api/tasks",
           {
             headers: {
               Authorization: `Bearer ${token}`
@@ -69,9 +70,7 @@ function TaskStatusCard() {
 
   }, []);
 
-  // ====================================
-  // TOTAL TASKS
-  // ====================================
+  
 
   const totalTasks =
     stats.todo +
@@ -79,10 +78,7 @@ function TaskStatusCard() {
     stats.done +
     stats.closed;
 
-  // ====================================
-  // WIDTH %
-  // ====================================
-
+  
   const getWidth = (count) => {
 
     if (totalTasks === 0) return "0%";

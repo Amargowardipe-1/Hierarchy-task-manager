@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { FiEdit, FiX } from "react-icons/fi";
 import toast from "react-hot-toast";
+import API from "../../api/axios";
 
 function TaskEditForm({ task, onTaskUpdated }) {
 
@@ -58,8 +59,8 @@ function TaskEditForm({ task, onTaskUpdated }) {
         const token =
           localStorage.getItem("token");
 
-        const res = await axios.get(
-          "http://localhost:8000/api/users",
+        const res = await API.get(
+          "/api/users",
           {
             headers: {
               Authorization: `Bearer ${token}`
@@ -97,9 +98,9 @@ function TaskEditForm({ task, onTaskUpdated }) {
       const token =
         localStorage.getItem("token");
 
-      const res = await axios.patch(
+      const res = await API.patch(
 
-        `http://localhost:8000/api/tasks/${task._id}`,
+        `/api/tasks/${task._id}`,
 
         formData,
 

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { FiPlus, FiX } from "react-icons/fi";
 import toast from "react-hot-toast";
+import API from "../api/axios";
 
 export default function UserForm({fetchUserss}) {
 
@@ -40,8 +41,8 @@ export default function UserForm({fetchUserss}) {
         const token = localStorage.getItem("token");
 
         // GET USERS API
-        const res = await axios.get(
-          "http://localhost:8000/api/users",
+        const res = await API.get(
+          "/api/users",
           {
             headers: {
               Authorization: `Bearer ${token}`
@@ -106,9 +107,9 @@ export default function UserForm({fetchUserss}) {
 
   }, []);
 
-  // ============================================
+  
   // HANDLE SUBMIT
-  // ============================================
+  
 
   const handleSubmit = async (e) => {
 
@@ -118,8 +119,8 @@ export default function UserForm({fetchUserss}) {
 
       const token = localStorage.getItem("token");
 
-      await axios.post(
-        "http://localhost:8000/api/auth/register",
+      await API.post(
+        "/api/auth/register",
         {
           ...formData,
           createdBy: currentUser.id

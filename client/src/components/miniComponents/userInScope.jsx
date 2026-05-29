@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
+import API from "../../api/axios";
 
 function UserInScope() {
     
@@ -10,8 +11,8 @@ function UserInScope() {
         const fetchUsers = async () => {
             try {
                 const token = localStorage.getItem("token");
-                const res = await axios.get(
-                    "http://localhost:8000/api/users",
+                const res = await API.get(
+                    "/api/users",
                     {
                         headers: {
                             Authorization: `Bearer ${token}`

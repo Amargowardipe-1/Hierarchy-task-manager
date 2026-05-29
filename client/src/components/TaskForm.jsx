@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { FiPlus, FiX } from "react-icons/fi";
 import axios from "axios";
 import toast from "react-hot-toast";
+import API from "../api/axios";
 
  function TaskHeader() {
 
@@ -33,7 +34,6 @@ import toast from "react-hot-toast";
 
   const [availableUsers, setAvailableUsers] = useState([]);
 
-  // ============================================
   // FETCH USERS
   useState(() => {
 
@@ -42,8 +42,8 @@ import toast from "react-hot-toast";
         const currUser= JSON.parse(localStorage.getItem('user'))
         const token = localStorage.getItem("token");
 
-        const res = await axios.get(
-          "http://localhost:8000/api/users",
+        const res = await API.get(
+          "/api/users",
           {
             headers: {
               Authorization: `Bearer ${token}`
@@ -70,8 +70,8 @@ import toast from "react-hot-toast";
 
       const token = localStorage.getItem("token");
 
-      await axios.post(
-        "http://localhost:8000/api/tasks",
+      await API.post(
+        "/api/tasks",
         formData,
         {
           headers: {

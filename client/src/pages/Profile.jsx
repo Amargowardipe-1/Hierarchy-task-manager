@@ -5,6 +5,7 @@ import axios from "axios";
 
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
+import API from "../api/axios";
 
 function Profile() {
 
@@ -34,8 +35,8 @@ function Profile() {
         setUser(currentUser);
 
         
-        const taskRes = await axios.get(
-          "http://localhost:8000/api/tasks",
+        const taskRes = await API.get(
+          "/api/tasks",
           {
             headers: {
               Authorization: `Bearer ${token}`
@@ -47,8 +48,8 @@ function Profile() {
           taskRes.data.tasks || [];
 
         
-        const userRes = await axios.get(
-          "http://localhost:8000/api/users",
+        const userRes = await API.get(
+          "/api/users",
           {
             headers: {
               Authorization: `Bearer ${token}`

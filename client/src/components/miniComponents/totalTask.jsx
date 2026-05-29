@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
+import API from "../../api/axios";
 
 function TotalTask(){
     const[TotalTasks, setTotalTasks] = useState(0);
@@ -8,8 +9,8 @@ function TotalTask(){
         const fetchTotalTasks = async()=>{
             try{
                 const token = localStorage.getItem("token");
-                const res = await axios.get(
-                    "http://localhost:8000/api/tasks",
+                const res = await API.get(
+                    "/api/tasks",
                     {
                         headers: {
                             Authorization: `Bearer ${token}`

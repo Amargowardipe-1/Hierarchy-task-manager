@@ -5,6 +5,7 @@ import axios from "axios";
 
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
+import API from "../api/axios";
 
 function OrgChart() {
 
@@ -31,8 +32,8 @@ function OrgChart() {
 
         setCurrUser(currentUser);
 
-        const res = await axios.get(
-          "http://localhost:8000/api/users",
+        const res = await API.get(
+          "/api/users",
           {
             headers: {
               Authorization: `Bearer ${token}`
@@ -91,7 +92,6 @@ function OrgChart() {
   };
 
   
-
   let rootUsers = [];
 
   console.log("currUser ID:", currUser?.id);
@@ -209,9 +209,9 @@ users.forEach((user) => {
 
   };
 
-  // ============================================
+  
   // UI
-  // ============================================
+ 
 
   return (
 

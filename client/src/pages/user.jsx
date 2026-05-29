@@ -10,6 +10,7 @@ import toast from "react-hot-toast";
 import UserUpdateForm from "../components/miniComponents/userEditForm";
 import { MdDelete } from "react-icons/md";
 import { RiDeleteBin3Fill } from "react-icons/ri";
+import API from "../api/axios";
 
 export default function Users() {
 
@@ -29,8 +30,8 @@ export default function Users() {
 
         const token = localStorage.getItem("token");
 
-        const res = await axios.get(
-          "http://localhost:8000/api/users",
+        const res = await API.get(
+          "/api/users",
           {
             headers: {
               Authorization: `Bearer ${token}`
@@ -70,8 +71,8 @@ export default function Users() {
 
       const token = localStorage.getItem("token");
 
-      await axios.delete(
-        `http://localhost:8000/api/users/${id}`,
+      await API.delete(
+        `/api/users/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`

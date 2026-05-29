@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import toast from "react-hot-toast";
+import API from "../api/axios";
 
 export default function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -13,7 +14,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8000/api/auth/login", formData);
+      const res = await API.post("/api/auth/login", formData);
       const { token, user } = res.data;
 
       localStorage.setItem("token", token);

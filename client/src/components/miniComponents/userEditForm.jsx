@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { FiEdit, FiX } from "react-icons/fi";
 import toast from "react-hot-toast";
+import API from "../../api/axios";
 
 function UserUpdateForm({ user, fetchUsers }) {
 
@@ -53,9 +54,9 @@ function UserUpdateForm({ user, fetchUsers }) {
       const token =
         localStorage.getItem("token");
 
-      await axios.patch(
+      await API.patch(
 
-        `http://localhost:8000/api/users/${user._id}`,
+        `/api/users/${user._id}`,
 
         formData,
 
