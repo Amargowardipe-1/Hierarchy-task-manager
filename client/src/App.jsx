@@ -18,16 +18,16 @@ function App() {
     <AuthProvider>   {/* 👈 Wrap everything inside AuthProvider */}
       <BrowserRouter>
         <Routes>
-          <Route path="/Login" element={<Login />} />
+          <Route path="/login" element={<Login />} />
 
-          <Route path="/SuperAdmin" element={
+          <Route path="/Superadmin" element={
     <ProtectedRoute allowedRoles={["super-admin"]}>
       <SuperAdmin />
     </ProtectedRoute>
   } />
 
   <Route
-   path="/User"
+   path="/user"
    element={
       <ProtectedRoute allowedRoles={["super-admin", "admin", "manager", "employee"]}>
          <Users />
@@ -35,32 +35,32 @@ function App() {
    }
 />
 
-  <Route path="/Admin" element={
+  <Route path="/admin" element={
     <ProtectedRoute allowedRoles={["admin","super-admin"]}>
       <Admin />
     </ProtectedRoute>
   } />
-  <Route path="/Manager" element={
+  <Route path="/manager" element={
     <ProtectedRoute allowedRoles={["admin","manager"]}>
       <Manager />
     </ProtectedRoute>
   } />
-  <Route path="/Employee" element={
+  <Route path="/employee" element={
     <ProtectedRoute allowedRoles={["employee","manager"]}>
       <Employee />
     </ProtectedRoute>
   } />
-  <Route path="/Task" element={
+  <Route path="/task" element={
     <ProtectedRoute allowedRoles={["super-admin", "admin", "manager", "employee"]}>
       <Task />
     </ProtectedRoute>
   } />
-  <Route path="/OrgChart" element={
+  <Route path="/orgchart" element={
     <ProtectedRoute allowedRoles={["super-admin", "admin", "manager", "employee"]}>
       <OrgChart />
     </ProtectedRoute>
   } />
-  <Route path="/Profile" element={
+  <Route path="/profile" element={
     <ProtectedRoute allowedRoles={["super-admin", "admin", "manager", "employee"]}>
       <Profile />
     </ProtectedRoute>

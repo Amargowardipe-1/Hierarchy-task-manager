@@ -46,7 +46,7 @@ useEffect(() => {
              )}
           <li><Link to="/task" className="hover:text-blue-300">Tasks</Link></li>
           <li><Link to="/user" className="hover:text-blue-300">Users</Link></li>
-          <li><Link to="/orgChart" className="hover:text-blue-300">Org Chart</Link></li>
+          <li><Link to="/orgchart" className="hover:text-blue-300">Org Chart</Link></li>
           <li><Link to="/profile" className="hover:text-blue-300">Profile</Link></li>
         </ul>
       </div>
