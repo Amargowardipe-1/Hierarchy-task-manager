@@ -23,10 +23,10 @@ import UsersByRole from "../components/miniComponents/UsersByRole";
 
       <SideBar />
 
-      <div className="flex-1 ml-64 ">
+      <div className="flex-1 md:ml-64 ">
         <NavBar />
 
-        <div className="p-6">
+        <div className="p-4 md:p-6">
           
           <h2 className="text-2xl font-bold mb-4"> Employee Dashboard</h2>
           <p className="mb-6">
@@ -34,7 +34,7 @@ import UsersByRole from "../components/miniComponents/UsersByRole";
           </p>
 
         
-          <div className="grid grid-cols-4 gap-4 mb-6 ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6 ">
             <UserInScope />
             <TotalTask />
             <InProgress />
@@ -44,7 +44,7 @@ import UsersByRole from "../components/miniComponents/UsersByRole";
             
             
           </div>
-      <div className="grid grid-cols-3 gap-2 mb-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-6">
           <TaskStatus />
           <TaskPriority />
           <UsersByRole />

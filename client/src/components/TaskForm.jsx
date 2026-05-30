@@ -106,18 +106,34 @@ toast.success("Task created successfully");
   return (
 
     <>
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
 
-        <h1 className="text-3xl font-bold text-gray-800">
-          Task Management
+         <h1 className="text-2xl md:text-3xl font-bold text-gray-800">
+           Task Management
         </h1>
-      {(currUser?.role==="super-admin"|| currUser?.role==="admin" ||currUser?.role==="manager")&&(
-        <button onClick={() => setShowModal(true)} className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-lg shadow">
-           <FiPlus />Create Task
-        </button>
-        )}
 
-      </div>
+         {(currUser?.role === "super-admin" ||
+         currUser?.role === "admin" ||
+         currUser?.role === "manager") && (
+
+      <button
+       onClick={() => setShowModal(true)}
+       className="
+        flex items-center justify-center gap-2
+        bg-blue-500 hover:bg-blue-600
+        text-white
+        px-4 py-2
+        rounded shadow
+         text-sm md:text-base
+      "
+    >
+      <FiPlus />
+       Create Task
+     </button>
+
+    )}
+
+</div>
 
       {showModal && (
 

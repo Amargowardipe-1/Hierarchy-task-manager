@@ -9,19 +9,28 @@ function Task() {
     return (
         
             <div className="flex">
-                  {/* Sidebar */}
-                  <SideBar />
-            
-                  {/* Main Content */}
-                  <div className="flex-1 ml-64">
-                    <NavBar />
-            
-        <div className="p-6">
-            <TaskForm />
-          </div>  
-            <TaskTable />
-        </div>
-        </div>
+
+  {/* Sidebar */}
+  <SideBar />
+
+  {/* Main Content */}
+  <div className="flex-1 md:ml-64">
+
+    <NavBar />
+
+    <div className="p-4 md:p-6">
+
+      <TaskForm />
+
+      <div className="mt-6">
+        <TaskTable />
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
         
     );
 }

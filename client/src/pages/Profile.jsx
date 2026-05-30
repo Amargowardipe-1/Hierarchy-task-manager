@@ -108,171 +108,184 @@ function Profile() {
 
     <div className="flex bg-gray-100 min-h-screen">
 
-      
-      <div className="fixed left-0 top-0 h-screen w-64 bg-slate-900">
-        <SideBar />
-      </div>
+  <SideBar />
 
-      <div className="ml-64 flex-1">
+  <div className="flex-1 md:ml-64">
 
-        <NavBar />
+    <NavBar />
 
-        <div className="p-8">
+    <div className="p-4 md:p-8">
 
-          <p className="uppercase tracking-[5px] text-gray-500 text-sm font-bold mb-2">
-            Profile
+      {/* Header */}
+      <p className="uppercase tracking-[3px] md:tracking-[5px] text-gray-500 text-xs md:text-sm font-bold mb-2">
+        Profile
+      </p>
+
+      <h1 className="text-3xl md:text-5xl font-bold mb-6 md:mb-10">
+        My Profile
+      </h1>
+
+      {/* Profile Card */}
+      <div
+        className="
+          bg-white
+          rounded-xl
+          shadow
+          border
+          p-4 md:p-8
+          flex flex-col sm:flex-row
+          items-center
+          gap-6
+          mb-10
+        "
+      >
+
+        {/* Avatar */}
+        <div
+          className="
+            w-20 h-20
+            md:w-24 md:h-24
+            rounded-full
+            bg-blue-500
+            text-white
+            flex items-center justify-center
+            text-3xl md:text-4xl
+            font-bold
+          "
+        >
+          {user?.name?.charAt(0)}
+        </div>
+
+        {/* User Info */}
+        <div className="text-center sm:text-left">
+
+          <h2 className="text-2xl md:text-3xl font-bold">
+            {user?.name}
+          </h2>
+
+          <p className="text-gray-500 text-sm md:text-lg break-all">
+            {user?.email}
           </p>
 
-          <h1 className="text-5xl font-bold mb-10">
-            My Profile
-          </h1>
+          <span className="inline-block mt-3 bg-blue-100 text-blue-700 px-4 py-1 rounded-full capitalize">
+            {user?.role}
+          </span>
 
-          
-          <div className="bg-white rounded-xl shadow border p-8 flex items-center gap-6 mb-10">
+        </div>
 
-            {/* AVATAR */}
-            <div className="w-24 h-24 rounded-full bg-blue-500 text-white flex items-center justify-center text-4xl font-bold">
+      </div>
 
-              {user?.name?.charAt(0)}
+      {/* Stats */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
 
-            </div>
+        {/* Total Tasks */}
+        <div className="bg-white p-4 md:p-6 rounded-xl shadow border">
 
-            {/* USER INFO */}
-            <div>
+          <h3 className="text-gray-500 font-semibold mb-2">
+            Total Tasks
+          </h3>
 
-              <h2 className="text-3xl font-bold">
-                {user?.name}
-              </h2>
+          <p className="text-3xl md:text-4xl font-bold">
+            {stats.totalTasks}
+          </p>
 
-              <p className="text-gray-500 text-lg">
-                {user?.email}
-              </p>
+        </div>
 
-              <span className="inline-block mt-3 bg-blue-100 text-blue-700 px-4 py-1 rounded-full capitalize">
+        {/* Completed */}
+        <div className="bg-white p-4 md:p-6 rounded-xl shadow border">
 
-                {user?.role}
+          <h3 className="text-gray-500 font-semibold mb-2">
+            Completed Tasks
+          </h3>
 
-              </span>
+          <p className="text-3xl md:text-4xl font-bold text-green-500">
+            {stats.completedTasks}
+          </p>
 
-            </div>
+        </div>
 
-          </div>
+        {/* Pending */}
+        <div className="bg-white p-4 md:p-6 rounded-xl shadow border">
 
-          {/* STATS */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <h3 className="text-gray-500 font-semibold mb-2">
+            Pending Tasks
+          </h3>
 
-            {/* TOTAL TASKS */}
-            <div className="bg-white p-6 rounded-xl shadow border">
+          <p className="text-3xl md:text-4xl font-bold text-yellow-500">
+            {stats.pendingTasks}
+          </p>
 
-              <h3 className="text-gray-500 font-semibold mb-2">
-                Total Tasks
-              </h3>
+        </div>
 
-              <p className="text-4xl font-bold">
-                {stats.totalTasks}
-              </p>
+        {/* Users */}
+        <div className="bg-white p-4 md:p-6 rounded-xl shadow border">
 
-            </div>
+          <h3 className="text-gray-500 font-semibold mb-2">
+            Total Users
+          </h3>
 
-            {/* COMPLETED */}
-            <div className="bg-white p-6 rounded-xl shadow border">
+          <p className="text-3xl md:text-4xl font-bold text-blue-500">
+            {stats.totalUsers}
+          </p>
 
-              <h3 className="text-gray-500 font-semibold mb-2">
-                Completed Tasks
-              </h3>
+        </div>
 
-              <p className="text-4xl font-bold text-green-500">
-                {stats.completedTasks}
-              </p>
+      </div>
 
-            </div>
+      {/* Work Summary */}
+      <div className="bg-white mt-10 rounded-xl shadow border p-4 md:p-8">
 
-            {/* PENDING */}
-            <div className="bg-white p-6 rounded-xl shadow border">
+        <h2 className="text-xl md:text-2xl font-bold mb-6">
+          Work Summary
+        </h2>
 
-              <h3 className="text-gray-500 font-semibold mb-2">
-                Pending Tasks
-              </h3>
+        <div className="space-y-4 text-sm md:text-lg">
 
-              <p className="text-4xl font-bold text-yellow-500">
-                {stats.pendingTasks}
-              </p>
+          <div className="flex justify-between items-center border-b pb-3">
 
-            </div>
+            <span>
+              Tasks Created
+            </span>
 
-            {/* USERS */}
-            <div className="bg-white p-6 rounded-xl shadow border">
-
-              <h3 className="text-gray-500 font-semibold mb-2">
-                Total Users
-              </h3>
-
-              <p className="text-4xl font-bold text-blue-500">
-                {stats.totalUsers}
-              </p>
-
-            </div>
+            <span className="font-bold">
+              {stats.totalTasks}
+            </span>
 
           </div>
 
-          {/* ACTIVITY */}
-          <div className="bg-white mt-10 rounded-xl shadow border p-8">
+          <div className="flex justify-between items-center border-b pb-3">
 
-            <h2 className="text-2xl font-bold mb-6">
-              Work Summary
-            </h2>
+            <span>
+              Tasks Completed
+            </span>
 
-            <div className="space-y-4 text-lg">
+            <span className="font-bold text-green-500">
+              {stats.completedTasks}
+            </span>
 
-              <div className="flex justify-between border-b pb-3">
+          </div>
 
-                <span>
-                  Tasks Created
-                </span>
+          <div className="flex justify-between items-center border-b pb-3">
 
-                <span className="font-bold">
-                  {stats.totalTasks}
-                </span>
+            <span>
+              Pending Tasks
+            </span>
 
-              </div>
+            <span className="font-bold text-yellow-500">
+              {stats.pendingTasks}
+            </span>
 
-              <div className="flex justify-between border-b pb-3">
+          </div>
 
-                <span>
-                  Tasks Completed
-                </span>
+          <div className="flex justify-between items-center">
 
-                <span className="font-bold text-green-500">
-                  {stats.completedTasks}
-                </span>
+            <span>
+              Managed Users
+            </span>
 
-              </div>
-
-              <div className="flex justify-between border-b pb-3">
-
-                <span>
-                  Pending Tasks
-                </span>
-
-                <span className="font-bold text-yellow-500">
-                  {stats.pendingTasks}
-                </span>
-
-              </div>
-
-              <div className="flex justify-between">
-
-                <span>
-                  Managed Users
-                </span>
-
-                <span className="font-bold text-blue-500">
-                  {stats.totalUsers}
-                </span>
-
-              </div>
-
-            </div>
+            <span className="font-bold text-blue-500">
+              {stats.totalUsers}
+            </span>
 
           </div>
 
@@ -282,8 +295,10 @@ function Profile() {
 
     </div>
 
-  );
+  </div>
 
+</div>
+  );
 }
 
 export default Profile;

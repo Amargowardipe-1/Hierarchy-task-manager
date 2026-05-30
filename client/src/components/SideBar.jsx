@@ -1,68 +1,122 @@
-// src/components/Sidebar.jsx
 import { Link } from "react-router-dom";
-import {useState, useEffect} from "react";
-
+import { useState, useEffect } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
 
 export default function SideBar() {
 
   const [currUser, setCurrUser] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
-useEffect(() => {
+  useEffect(() => {
 
-  const currentUser = JSON.parse(
-    localStorage.getItem("user")
-  );
+    const currentUser = JSON.parse(
+      localStorage.getItem("user")
+    );
 
-  if (currentUser) {
-    setCurrUser(currentUser);
-  }
+    if (currentUser) {
+      setCurrUser(currentUser);
+    }
 
-}, []);
-    
-  
-  
-
-
-
+  }, []);
 
   return (
-    <div className="w-64 bg-gray-800 text-white h-screen p-4  flex flex-col justify-between fixed left-0 top-0  overflow-y-auto">
-      {/* Logo / Title */}
-      <div>
-        <h2 className="text-xl font-bold mb-6">HTMS Task Hierarchy</h2>
-        <ul className="space-y-4">
+    <>
+      {/* Mobile Menu Button */}
+      <button
+        onClick={() => setIsOpen(true)}
+        className=" md:hidden absolute top-4 left-4 z-50 bg-gray-800 text-white p-2 rounded"
+      >
+        <FiMenu size={24} />
+      </button>
 
-        {currUser?.role === "super-admin" && (
-          <li> <Link to="/superadmin" className="hover:text-blue-300"> Dashboard</Link></li>
-             )}
-        {currUser?.role === "admin" && (
-              <li> <Link to="/admin" className="hover:text-blue-300"> Dashboard </Link> </li>
-             )}
-           {currUser?.role === "manager" && (
-              <li> <Link to="/manager" className="hover:text-blue-300"> Dashboard </Link> </li>
-             )}
-         {currUser?.role === "employee" && (
-              <li> <Link to="/employee" className="hover:text-blue-300"> Dashboard </Link> </li>
-             )}
-          <li><Link to="/task" className="hover:text-blue-300">Tasks</Link></li>
-          <li><Link to="/user" className="hover:text-blue-300">Users</Link></li>
-          <li><Link to="/orgchart" className="hover:text-blue-300">Org Chart</Link></li>
-          <li><Link to="/profile" className="hover:text-blue-300">Profile</Link></li>
-        </ul>
-      </div>
+      {/* Overlay */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40 md:hidden"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
 
-      {/* Logout */}
-      <div>
+      {/* Sidebar */}
+      <div
+        className={`
+          fixed top-0 left-0 z-50
+          w-64 h-screen bg-gray-800 text-white p-4
+          flex flex-col justify-between overflow-y-auto
+          transform transition-transform duration-300
+
+          ${isOpen ? "translate-x-0" : "-translate-x-full"}
+
+          md:translate-x-0
+        `}
+      >
+
+        {/* Close Button Mobile */}
+        <button
+          onClick={() => setIsOpen(false)}
+          className="md:hidden absolute top-4 right-4"
+        >
+          <FiX size={24} />
+        </button>
+
+        <div>
+          <h2 className="text-xl font-bold mb-6">
+            HTMS Task Hierarchy
+          </h2>
+
+          <ul className="space-y-4">
+
+            {currUser?.role === "super-admin" && (
+              <li>
+                <Link to="/superadmin">
+                  Dashboard
+                </Link>
+              </li>
+            )}
+
+            {currUser?.role === "admin" && (
+              <li>
+                <Link to="/admin">
+                  Dashboard
+                </Link>
+              </li>
+            )}
+
+            {currUser?.role === "manager" && (
+              <li>
+                <Link to="/manager">
+                  Dashboard
+                </Link>
+              </li>
+            )}
+
+            {currUser?.role === "employee" && (
+              <li>
+                <Link to="/employee">
+                  Dashboard
+                </Link>
+              </li>
+            )}
+
+            <li><Link to="/task">Tasks</Link></li>
+            <li><Link to="/user">Users</Link></li>
+            <li><Link to="/orgchart">Org Chart</Link></li>
+            <li><Link to="/profile">Profile</Link></li>
+
+          </ul>
+        </div>
+
         <button
           onClick={() => {
             localStorage.clear();
-            window.location.href = "/";
+            window.location.href = "/login";
           }}
           className="bg-red-500 px-4 py-2 rounded w-full"
         >
           Logout
         </button>
+
       </div>
-    </div>
+    </>
   );
 }

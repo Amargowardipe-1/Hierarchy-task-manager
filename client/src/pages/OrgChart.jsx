@@ -140,74 +140,76 @@ users.forEach((user) => {
 
     return (
 
-      <div className="ml-8">
+     <div className="ml-2 md:ml-8">
 
-        {/* USER ROW */}
-        <div className="flex items-start gap-4 mb-6">
+      {/* USER ROW */}
+      <div className="flex items-start gap-3 md:gap-4 mb-6">
 
-          {/* TREE SYMBOL */}
-          {level !== 0 && (
-            <div className="text-gray-400 mt-2">
-              └
-            </div>
-          )}
-
-          {/* AVATAR */}
-          <div className="w-10 h-10 rounded-full bg-blue-100 border flex items-center justify-center font-bold uppercase">
-
-            {user.name?.charAt(0)}
-
+        {level !== 0 && (
+          <div className="text-gray-400 mt-2 shrink-0">
+            └
           </div>
+        )}
 
-          {/* USER INFO */}
-          <div>
+        {/* AVATAR */}
+        <div className="
+          w-10 h-10 md:w-12 md:h-12
+          rounded-full
+          bg-blue-100
+          border
+          flex
+          items-center
+          justify-center
+          font-bold
+          uppercase
+          shrink-0
+        ">
+          {user.name?.charAt(0)}
+        </div>
 
-            <h3 className="font-bold text-lg">
+        {/* USER INFO */}
+        <div className="min-w-0">
 
-              {user.name}
+          <h3 className="font-bold text-base md:text-lg break-words">
+            {user.name}
+          </h3>
 
-            </h3>
+          <p className="uppercase tracking-[2px] md:tracking-[3px] text-[10px] md:text-xs text-gray-500">
+            {user.role}
+          </p>
 
-            <p className="uppercase tracking-[3px] text-xs text-gray-500">
-
-              {user.role}
-
-            </p>
-
-            <p className="text-sm text-gray-600">
-
-              {user.email}
-
-            </p>
-
-          </div>
+          <p className="text-xs md:text-sm text-gray-600 break-all">
+            {user.email}
+          </p>
 
         </div>
 
-        {/* CHILDREN */}
-        {children.length > 0 && (
-
-          <div className="ml-6 border-l border-gray-300 pl-6">
-
-            {children.map((child) => (
-
-              <UserCard
-                key={child._id}
-                user={child}
-                level={level + 1}
-              />
-
-            ))}
-
-          </div>
-
-        )}
-
       </div>
 
-    );
+      {/* CHILDREN */}
+      {children.length > 0 && (
 
-  };
+        <div className="ml-3 md:ml-6 border-l border-gray-300 pl-3 md:pl-6">
+
+          {children.map((child) => (
+
+            <UserCard
+              key={child._id}
+              user={child}
+              level={level + 1}
+            />
+
+          ))}
+
+        </div>
+
+      )}
+
+    </div>
+
+  );
+
+};
 
   
   // UI
@@ -217,66 +219,56 @@ users.forEach((user) => {
 
     <div className="flex bg-gray-50 min-h-screen">
 
-      
-      <SideBar />
+  <SideBar />
 
-      <div className="flex-1 ml-64">
+  <div className="flex-1 md:ml-64">
 
-        <NavBar />
+    <NavBar />
 
-        {/* PAGE */}
-        <div className="p-8">
+    {/* PAGE */}
+    <div className="p-4 md:p-8">
 
-          <p className="uppercase tracking-[5px] text-sm font-bold text-gray-500 mb-2">
+      <p className="uppercase tracking-[3px] md:tracking-[5px] text-xs md:text-sm font-bold text-gray-500 mb-2">
+        Hierarchy
+      </p>
 
-            Hierarchy
+      <h1 className="text-2xl md:text-4xl font-bold mb-3">
+        Organisation Chart
+      </h1>
 
+      <p className="text-gray-600 mb-6 md:mb-10 text-sm md:text-lg">
+        Live reporting hierarchy of users.
+      </p>
+
+      {/* CHART */}
+      <div className="bg-white rounded shadow border p-4 md:p-8 min-h-[500px] overflow-x-auto">
+
+        {rootUsers.length > 0 ? (
+
+          rootUsers.map((user) => (
+
+            <UserCard
+              key={user._id}
+              user={user}
+            />
+
+          ))
+
+        ) : (
+
+          <p className="text-gray-500">
+            No hierarchy found
           </p>
 
-          {/* TITLE */}
-          <h1 className="text-4xl font-bold mb-3">
-
-            Organisation Chart
-
-          </h1>
-
-          <p className="text-gray-600 mb-10 text-lg">
-
-            Live reporting hierarchy of users.
-
-          </p>
-
-          {/* CHART */}
-          <div className="bg-white rounded shadow border p-8 min-h-[500px]">
-
-            {rootUsers.length > 0 ? (
-
-              rootUsers.map((user) => (
-
-                <UserCard
-                  key={user._id}
-                  user={user}
-                />
-
-              ))
-
-            ) : (
-
-              <p className="text-gray-500">
-
-                No hierarchy found
-
-              </p>
-
-            )}
-
-          </div>
-
-        </div>
+        )}
 
       </div>
 
     </div>
+
+  </div>
+
+</div>
 
   );
 

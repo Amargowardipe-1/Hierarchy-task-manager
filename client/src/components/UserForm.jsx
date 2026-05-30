@@ -175,20 +175,28 @@ export default function UserForm({fetchUserss}) {
 
       <div className="mr-4">
 
-       {(currentUser?.role==="super-admin" || currentUser?.role==="admin" || currentUser?.role==="manager")&&(
-        <button
-          onClick={() => setShowModal(true)}
-          className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded h-10 w-36"
-        >
+  {(currentUser?.role === "super-admin" ||
+    currentUser?.role === "admin" ||
+    currentUser?.role === "manager") && (
 
-          <FiPlus />
+    <button
+      onClick={() => setShowModal(true)}
+      className="
+        flex items-center justify-center gap-2
+        bg-green-500 hover:bg-green-600
+        text-white
+        px-4 py-2
+        rounded
+        text-sm md:text-base
+      "
+    >
+      <FiPlus />
+      Create User
+    </button>
 
-          Create User
+  )}
 
-        </button>
-        )}
-
-      </div>
+</div>
 
       {/* MODAL */}
 

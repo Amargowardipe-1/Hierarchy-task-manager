@@ -118,142 +118,148 @@ export default function Users() {
 
     <div className="flex min-h-screen bg-gray-100">
 
-      
-      <SideBar />
+  {/* Sidebar */}
+  <SideBar />
 
-    
-      <div className="flex-1 ml-64">
+  {/* Main Content */}
+  <div className="flex-1 md:ml-64">
 
-        
-        <NavBar />
+    <NavBar />
 
-        {/* Content */}
-        <div className="p-6">
+    {/* Content */}
+    <div className="p-4 md:p-6">
 
-        <div className="user-header  flex flex-row" >
-          <h1 className="text-3xl font-bold mb-6">
-            Users Management
-          </h1>
-          <div className="create-user ml-200">
-          <UserForm  fetchUserss={fetchUsers} />
-          </div>
-          </div>
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
 
-          <div className="bg-white rounded-lg shadow overflow-hidden">
+        <h1 className="text-2xl md:text-3xl font-bold">
+          Users Management
+        </h1>
 
-            <table className="w-full border-collapse">
+        <UserForm fetchUserss={fetchUsers} />
 
-              {/* TABLE HEAD */}
-              <thead>
+      </div>
 
-                <tr className="bg-gray-200 text-left">
+      {/* Users Table */}
+      <div className="bg-white rounded-lg shadow overflow-x-auto">
 
-                  <th className="p-3 border">
-                    Name
-                  </th>
+        <table className="w-full min-w-[700px] border-collapse">
 
-                  <th className="p-3 border">
-                    Email
-                  </th>
+          <thead>
 
-                  <th className="p-3 border">
-                    Role
-                  </th>
+            <tr className="bg-gray-200 text-left">
 
-                  <th className="p-3 border">
-                    Actions
-                  </th>
+              <th className="p-3 border text-sm md:text-base">
+                Name
+              </th>
 
-                </tr>
+              <th className="p-3 border text-sm md:text-base">
+                Email
+              </th>
 
-              </thead>
+              <th className="p-3 border text-sm md:text-base">
+                Role
+              </th>
 
-              {/* TABLE BODY */}
-              <tbody>
+              <th className="p-3 border text-sm md:text-base">
+                Actions
+              </th>
 
-                {Array.isArray(users) && users.length > 0 ? (
+            </tr>
 
-                  users.map((user) => (
+          </thead>
 
-                    <tr
-                      key={user._id}
-                      className="hover:bg-gray-50 transition" >
+          <tbody>
 
-                      <td
-                      className={`p-3 border ${
-                       !user.isActive
-                        ? "opacity-50"
-                         : ""
-                        }`}
-                        >
-                        {user.name}
-                        </td>
+            {Array.isArray(users) && users.length > 0 ? (
 
-                       <td
-                        className={`p-3 border ${
-                          !user.isActive
-                           ? "opacity-50"
-                           : ""
-                          }`}
-                           >
-                              {user.email}
-                        </td>
+              users.map((user) => (
 
-                        <td
-                              className={`p-3 border capitalize ${
-                               !user.isActive
-                              ? "opacity-50"
-                               : ""
-                              }`} >
-                            {user.role}
-                         </td>
+                <tr
+                  key={user._id}
+                  className="hover:bg-gray-50 transition"
+                >
 
-                      <td className="p-3 border space-x-3">
+                  <td
+                    className={`p-3 border text-sm md:text-base ${
+                      !user.isActive ? "opacity-50" : ""
+                    }`}
+                  >
+                    {user.name}
+                  </td>
 
-                       <UserEditForm user={user} fetchUsers={fetchUsers} />
+                  <td
+                    className={`p-3 border text-sm md:text-base ${
+                      !user.isActive ? "opacity-50" : ""
+                    }`}
+                  >
+                    {user.email}
+                  </td>
 
-                    {(currUser?.role==="super-admin" || currUser?.role==="admin" || currUser?.role==="manager")&&(
+                  <td
+                    className={`p-3 border capitalize text-sm md:text-base ${
+                      !user.isActive ? "opacity-50" : ""
+                    }`}
+                  >
+                    {user.role}
+                  </td>
+
+                  <td className="p-3 border">
+
+                    <div className="flex items-center gap-3">
+
+                      <UserEditForm
+                        user={user}
+                        fetchUsers={fetchUsers}
+                      />
+
+                      {(currUser?.role === "super-admin" ||
+                        currUser?.role === "admin" ||
+                        currUser?.role === "manager") && (
+
                         <button
                           onClick={() => deleteUser(user._id)}
                           className="text-red-500 hover:underline"
                         >
-                        <RiDeleteBin3Fill />
+                          <RiDeleteBin3Fill />
                         </button>
-                        )}
 
-                      </td>
+                      )}
 
-                    </tr>
+                    </div>
 
-                  ))
+                  </td>
 
-                ) : (
+                </tr>
 
-                  <tr>
+              ))
 
-                    <td
-                      colSpan="4"
-                      className="text-center p-6 text-gray-500"
-                    >
-                      No users found
-                    </td>
+            ) : (
 
-                  </tr>
+              <tr>
 
-                )}
+                <td
+                  colSpan="4"
+                  className="text-center p-6 text-gray-500"
+                >
+                  No users found
+                </td>
 
-              </tbody>
+              </tr>
 
-            </table>
+            )}
 
-          </div>
+          </tbody>
 
-        </div>
+        </table>
 
       </div>
 
     </div>
 
+  </div>
+
+</div>
   );
 
 }

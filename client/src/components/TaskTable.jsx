@@ -131,13 +131,13 @@ function TaskTable() {
 
   return (
 
-    <div className="bg-white rounded shadow p-4">
+    <div className="bg-white rounded shadow p-4 overflow-x-auto">
 
       <h3 className="text-xl font-semibold mb-4">
         Tasks
       </h3>
 
-      <table className="w-full  ">
+      <table className="w-full min-w-[800px] ">
 
         <thead>
 
