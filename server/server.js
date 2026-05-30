@@ -13,9 +13,13 @@ connectDB();
 
 // Middleware
 app.use(cors({
-   origin: "https://hierarchy-task-manager.vercel.app",
+  origin: [
+    "http://localhost:5173",
+    "https://hierarchy-task-manager.vercel.app"
+  ],
+  credentials: true
+}));
 
-   credentials: true }));
 app.use(express.json());
 
 
